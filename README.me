@@ -1,0 +1,78 @@
+EC2 CPU Monitoring & Alerting Using AWS CloudWatch
+
+This project showcases how to monitor the real-time performance of an Amazon EC2 instance using AWS CloudWatch, with a focus on CPU utilization.
+It also demonstrates how to configure a CloudWatch Alarm that flags abnormal usage patterns when a defined threshold is crossed.
+
+🔍 Project Summary
+
+In cloud-based systems, continuous monitoring of compute resources is essential to ensure reliability and performance. 
+This implementation leverages AWS’s native monitoring capabilities to track CPU usage on an EC2 instance and detect sudden load increases through automated alarms.
+
+Key Goals:
+
+Metric Monitoring: Capture and visualize CPU utilization data from an EC2 instance.
+
+Threshold-Based Detection: Configure an alarm to detect abnormal CPU consumption.
+
+Operational Awareness: Enable quick identification of performance anomalies using CloudWatch metrics and alarms.
+
+🧰 AWS Services Involved
+
+Amazon EC2: The compute instance under observation (Instance ID: i-08cc5d5881f30226f).
+
+AWS CloudWatch: Used for metric collection, visualization, and alarm configuration.
+
+⚙️ Setup & Configuration
+
+The heart of this project is a CloudWatch Alarm configured to continuously monitor the CPU load of the EC2 instance.
+The alarm evaluates CPU behavior over short intervals to ensure timely detection of spikes.
+
+Alarm Settings:
+
+Metric Name: CPUUtilization
+
+Aggregation Method: Average
+
+Monitoring Interval: 1 minute
+
+Trigger Condition: CPU usage ≥ 15%
+
+Evaluation Window: 1 data point (1 minute)
+
+Alarm Actions: None (visual alert only)
+
+📈 Observations & Validation
+
+To validate the setup, artificial CPU load was generated on the EC2 instance. The system responded correctly to the increased resource usage.
+
+Normal Operation (OK State)
+
+Under idle conditions, CPU utilization remained low and consistent. During this phase, the CloudWatch alarm stayed in the OK state,
+confirming that the instance was operating within acceptable limits.
+
+Load Increase & Metric Spike
+
+At approximately 13:10, the CPU usage rose sharply from below 5% to more than 60%. This sudden increase clearly exceeded the defined threshold,
+as visible on the CloudWatch metric graph.
+
+Alarm Activation
+
+After the CPU utilization stayed above 15% for one full minute, the alarm transitioned from OK to In Alarm at 13:13:27 (local time). 
+This confirmed that the alarm logic was working as intended and reacting promptly to performance changes.
+
+🧠 Key Takeaways
+
+This project illustrates how AWS CloudWatch can be used to build an effective monitoring and alerting mechanism with minimal configuration.
+Even a basic alarm setup can provide valuable insights into system behavior and help teams respond quickly to unexpected load conditions.
+
+Such monitoring is a foundational practice in cloud operations, enabling proactive troubleshooting, improved system reliability, and better infrastructure management.
+
+If you want, I can also:
+
+Make this more DevOps-oriented
+
+Rewrite it in a resume / GitHub-optimized format
+
+Add a “Future Improvements” section (SNS alerts, dashboards, Auto Scaling, etc.)
+
+Tell me where you’re planning to use it next.
